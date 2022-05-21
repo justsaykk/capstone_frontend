@@ -27,7 +27,7 @@ function Registration() {
             },
         })
         .catch((error) => {
-            console.log.error({ Error: error})
+            console.log({ Error: error})
         })
     }
 
