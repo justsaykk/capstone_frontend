@@ -1,17 +1,39 @@
 import React, {useState} from "react";
 
+
 function Registration() {
-    // Logic Here
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-
+    const LOCAL_BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+    // const BACKEND = process.env.REACT_APP_BACKEND
+    
     function validateForm() {
-        return email.length > 0 && password.length > 6;
+        return email.length > 0 && password.length > 5;
+    }
+    
+    const URL = LOCAL_BACKEND + "/api/user/register";
+    function handleSubmit(event) {
+        event.preventDefault();
+        fetch(URL, {
+            method: "POST",
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: password,
+            }),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        })
+        .catch((error) => {
+            console.log.error({ Error: error})
+        })
     }
 
     return (
         <div>
+            <form onSubmit={handleSubmit}>
             <div className="registration-name">
                 <label for="registrationName">Name</label>
                 <input type="input" value={name} onChange={e => {setName(e.target.value)}} />
@@ -25,6 +47,7 @@ function Registration() {
                 <input type="password" value={password} onChange={e => {setPassword(e.target.value)}} />
             </div>
             <button type="submit" disabled={!validateForm()}>Register!</button>
+            </form>
         </div>
     )
 }
