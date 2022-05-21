@@ -13,8 +13,8 @@ function LoginPage() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log("email is", email)
-        console.log("password is", password)
+        // console.log("email is", email)
+        // console.log("password is", password)
     }
 
     return (
