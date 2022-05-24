@@ -13,6 +13,7 @@ function Registration() {
     }
     
     const URL = LOCAL_BACKEND + "/api/user/register";
+    // const URL = BACKEND + "/api/user/register";
     function handleSubmit(event) {
         event.preventDefault();
         fetch(URL, {

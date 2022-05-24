@@ -3,20 +3,20 @@ import { Link } from "react-router-dom";
 export default function NavBar() {
   return (
     <div className="navBar">
-      <Link className="button" to="/home">
+      <Link className="button" to="/">
         Home
       </Link>
 
-      <Link className="button" to="/inspired">
-        Get Inspired!
+      <Link className="button" to="/products">
+        Products
       </Link>
 
-      <Link className="button" to="/itinerary">
-        Itineraries (WIP)
+      <Link className="button" to="/login">
+        Login
       </Link>
 
       <Link className="button" to="/cart">
-        My Cart (WIP)
+        My Cart
       </Link>
     </div>
   );

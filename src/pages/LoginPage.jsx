@@ -5,17 +5,28 @@ function LoginPage() {
     // States
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const LOCAL_BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+    // const BACKEND = process.env.REACT_APP_BACKEND
 
     // Check if email field & password field is empty
     function validateForm() {
         return email.length > 0 && password.length > 0;
     }
 
+    const URL = LOCAL_BACKEND + "/api/user/login";
+    // const URL = BACKEND + "/api/user/login";
     function handleSubmit(event) {
         event.preventDefault();
-        // console.log("email is", email)
-        // console.log("password is", password)
+        fetch(URL, {
+            method: "POST",
+            body: JSON.stringify({
+                email: email,
+                password: password,
+            })
+        })
     }
+
+    // Need to expect something in return to redirect users to landing page.
 
     return (
         <div>
