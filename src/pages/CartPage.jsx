@@ -1,9 +1,9 @@
 import { React, useState } from "react";
 import NavBar from "../components/NavBar";
 
-function CartPage() {
+function CartPage({cart}) {
   // States
-  const [cart, setCart] = useState();
+  
 
   return (
     <div>

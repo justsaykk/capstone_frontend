@@ -6,17 +6,14 @@ export default function NavBar() {
       <Link className="button" to="/">
         Home
       </Link>
-
       <Link className="button" to="/products">
         Products
       </Link>
-
-      <Link className="button" to="/login">
-        Login
-      </Link>
-
       <Link className="button" to="/cart">
         My Cart
+      </Link>
+      <Link className="button" to="/login">
+        Login
       </Link>
     </div>
   );

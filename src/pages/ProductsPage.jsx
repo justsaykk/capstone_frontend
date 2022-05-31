@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 
-function ProductsPage() {
-  const [productList, setProductList] = useState([]);
-
+function ProductsPage({ productList, setProductList, setCart }) {
   // URLs
   const BACKEND = process.env.REACT_APP_BACKEND;
 
@@ -17,7 +15,10 @@ function ProductsPage() {
       });
   }, []);
 
-  console.log("product List = ", productList);
+  const handleSubmit = () => {
+    // Code here...
+    console.log("i clicked submit");
+  };
 
   return (
     <div>
@@ -28,13 +29,17 @@ function ProductsPage() {
       <div className="itinerariesList">
         {productList.map((el) => {
           return (
-            <div className="product-wrapper">
+            <div className="itinerary-wrapper">
               <div className="image-holder">
                 <img src={""} alt={""} />
               </div>
               <div className="info-holder">
-                <h2>{el.pName}</h2>
-                <p>{el.description}</p>
+                <br />
+                <h3>{el.pName}</h3> <br />
+                <p className="peak-description">{el.description}</p> <br />
+              </div>
+              <div className="add-to-cart-button">
+                <button onClick={handleSubmit}>Add to cart</button>
               </div>
             </div>
           );
