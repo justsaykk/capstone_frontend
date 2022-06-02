@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
 
-function ProductsPage({ productList, setProductList, setCart }) {
+function ProductsPage({
+  productList,
+  setProductList,
+  setCart,
+  setDActivities,
+}) {
   // URLs
   const BACKEND = process.env.REACT_APP_BACKEND;
 
@@ -12,15 +17,17 @@ function ProductsPage({ productList, setProductList, setCart }) {
       .then((res) => res.json())
       .then((data) => {
         setProductList(data);
+        // console.log(data);
       });
   }, []);
 
-  const handleSubmit = () => {
-    // Code here...
-    console.log("i clicked submit");
+  const handleAddToCart = (event) => {
+    setCart(event.target.value);
   };
 
-
+  const handleFindOutMore = (event) => {
+    setDActivities(event.target.value);
+  };
 
   return (
     <div>
@@ -28,21 +35,25 @@ function ProductsPage({ productList, setProductList, setCart }) {
       <div id="header">
         <h1>Itineraries</h1>
       </div>
-      <div className="itinerariesList">
+      <div>
         {productList.map((el) => {
           return (
-            <div className="itinerary-wrapper">
-              <div className="image-holder">
+            <div>
+              <div>
                 <img src={""} alt={""} />
               </div>
-              <div className="info-holder">
+              <div>
                 <br />
                 <h3>{el.pName}</h3> <br />
-                <p className="peak-description">{el.description}</p> <br />
+                <p>{el.description}</p> <br />
               </div>
               <div>
-                <button>Find Out More</button>
-                <button onClick={handleSubmit}>Add To Cart</button>
+                <button onClick={handleFindOutMore} value={el.id}>
+                  Find Out More
+                </button>
+                <button onClick={handleAddToCart} value={el.id}>
+                  Add To Cart
+                </button>
               </div>
             </div>
           );

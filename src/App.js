@@ -4,11 +4,13 @@ import Registration from "./pages/Registration";
 import LandingPage from "./pages/LandingPage";
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
+import DetailedActivities from "./pages/DetailedActivites";
 import { useState } from "react";
 
 function App() {
   const [productList, setProductList] = useState([]);
   const [cart, setCart] = useState([]);
+  const [dActivities, setDActivities] = useState();
   return (
     <div className="App">
       <BrowserRouter>
@@ -17,12 +19,17 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Registration />} />
           <Route
+            path="/detailed"
+            element={<DetailedActivities dActivities={dActivities} />}
+          />
+          <Route
             path="/products"
             element={
               <ProductsPage
                 productList={productList}
                 setProductList={setProductList}
                 setCart={setCart}
+                setDActvities={setDActivities}
               />
             }
           />
