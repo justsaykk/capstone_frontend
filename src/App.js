@@ -19,7 +19,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Registration />} />
           <Route
-            path="/detailed"
+            path="/details"
             element={<DetailedActivities dActivities={dActivities} />}
           />
           <Route

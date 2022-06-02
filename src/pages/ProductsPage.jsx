@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
+import { useNavigate } from "react-router-dom";
 
 function ProductsPage({
   productList,
@@ -9,6 +10,7 @@ function ProductsPage({
 }) {
   // URLs
   const BACKEND = process.env.REACT_APP_BACKEND;
+  const navigate = useNavigate();
 
   // API
   const URL = BACKEND + "/api/product";
@@ -27,6 +29,7 @@ function ProductsPage({
 
   const handleFindOutMore = (event) => {
     setDActivities(event.target.value);
+    navigate("/details");
   };
 
   return (
