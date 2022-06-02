@@ -20,6 +20,8 @@ function ProductsPage({ productList, setProductList, setCart }) {
     console.log("i clicked submit");
   };
 
+
+
   return (
     <div>
       <NavBar />
@@ -38,8 +40,9 @@ function ProductsPage({ productList, setProductList, setCart }) {
                 <h3>{el.pName}</h3> <br />
                 <p className="peak-description">{el.description}</p> <br />
               </div>
-              <div className="add-to-cart-button">
-                <button onClick={handleSubmit}>Add to cart</button>
+              <div>
+                <button>Find Out More</button>
+                <button onClick={handleSubmit}>Add To Cart</button>
               </div>
             </div>
           );
