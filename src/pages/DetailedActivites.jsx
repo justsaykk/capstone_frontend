@@ -11,8 +11,9 @@ export default function DetailedActivities({ dActivities }) {
   // API
   const URL = BACKEND + "/api/product/details";
   useEffect(() => {
+    console.log("I am Fetching from Detailed Activities)");
     fetch(URL, {
-      method: "POST",
+      method: "GET",
       body: JSON.stringify({
         productID: dActivities,
       }),
@@ -33,7 +34,13 @@ export default function DetailedActivities({ dActivities }) {
       <div id="header">
         <h1>Itineraries</h1>
       </div>
-      <button onClick={navigate("/products")}>Back</button>
+      <button
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        Back
+      </button>
     </div>
   );
 }

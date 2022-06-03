@@ -19,7 +19,6 @@ function ProductsPage({
       .then((res) => res.json())
       .then((data) => {
         setProductList(data);
-        // console.log(data);
       });
   }, []);
 
@@ -28,8 +27,8 @@ function ProductsPage({
   };
 
   const handleFindOutMore = (event) => {
-    setDActivities(event.target.value);
     navigate("/details");
+    setDActivities(event.target.value);
   };
 
   return (
