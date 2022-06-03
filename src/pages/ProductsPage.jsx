@@ -24,11 +24,12 @@ function ProductsPage({
 
   const handleAddToCart = (event) => {
     setCart(event.target.value);
+    navigate("/cart");
   };
 
   const handleFindOutMore = (event) => {
-    navigate("/details");
     setDActivities(event.target.value);
+    navigate("/details");
   };
 
   return (

@@ -10,7 +10,8 @@ import { useState } from "react";
 function App() {
   const [productList, setProductList] = useState([]);
   const [cart, setCart] = useState([]);
-  const [dActivities, setDActivities] = useState();
+  const [dActivities, setDActivities] = useState([]);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -29,7 +30,7 @@ function App() {
                 productList={productList}
                 setProductList={setProductList}
                 setCart={setCart}
-                setDActvities={setDActivities}
+                setDActivities={setDActivities}
               />
             }
           />
