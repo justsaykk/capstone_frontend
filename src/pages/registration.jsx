@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Registration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const BACKEND = process.env.REACT_APP_BACKEND;
+  const navigate = useNavigate();
 
   function validateForm() {
     return email.length > 0 && password.length > 5;
@@ -63,6 +65,13 @@ function Registration() {
         </div>
         <button type="submit" disabled={!validateForm()}>
           Register!
+        </button>
+        <button
+          onClick={() => {
+            navigate("/products");
+          }}
+        >
+          Back
         </button>
       </form>
     </div>
