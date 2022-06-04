@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import { useNavigate } from "react-router-dom";
 
 export default function Bookings() {
-  const [bookings, setBookings] = useState();
+  const [bookings, setBookings] = useState([]);
 
   // URLs
   // const BACKEND = process.env.REACT_APP_BACKEND;
@@ -20,15 +20,40 @@ export default function Bookings() {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-        res.json();
-        console.log("booking server response:", res);
-      })
+      .then((res) => res.json())
       .then((data) => {
         console.log("booking data:", data);
         setBookings(data);
       });
   }, []);
+
+  const update = (event) => {
+    fetch(URL + "/update", {
+      method: "POST",
+      body: JSON.stringify({
+        id: event.id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
+      console.log({ Error: error });
+    });
+  };
+
+  function deleteTrek(event) {
+    fetch(URL + "/delete", {
+      method: "POST",
+      body: JSON.stringify({
+        id: event.id,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).catch((error) => {
+      console.log({ Error: error });
+    });
+  }
 
   return (
     <div>
@@ -39,8 +64,29 @@ export default function Bookings() {
       <div>
         <table>
           <tr>
-            <th></th>
+            <th>Trek</th>
+            <th>Date of Adventure</th>
+            <th>Update Details</th>
+            <th>Delete Adventure</th>
           </tr>
+          {bookings.map((el) => {
+            const product = el.product.pName;
+            const trekDate = el.trekDate;
+            console.log("product", product);
+            console.log("trekDate", trekDate);
+            return (
+              <tr>
+                <td>{product}</td>
+                <td>{trekDate}</td>
+                <td>
+                  <button onClick={update}>Update</button>
+                </td>
+                <td>
+                  <button onClick={deleteTrek}>Delete</button>
+                </td>
+              </tr>
+            );
+          })}
         </table>
       </div>
     </div>

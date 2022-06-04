@@ -26,9 +26,9 @@ function CartPage({ cart }) {
       .then((res) => res.json())
       .then((data) => {
         cartDetails.push(data);
-        // if (cartDetails.length > 1) {
-        //   prune(cartDetails);
-        // }
+        if (cartDetails.length > 1) {
+          prune(cartDetails);
+        }
         console.log("data:", data);
         console.log("cartDetails[]: ", cartDetails);
       });
@@ -45,7 +45,7 @@ function CartPage({ cart }) {
           const price = el.price.toString();
           return (
             <div>
-              <h3>{name}</h3>
+              <h3>{el.pName}</h3>
               <p>USD {price}</p>
               <button>Book my trip now!</button>
             </div>

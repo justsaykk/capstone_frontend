@@ -23,13 +23,9 @@ function ProductsPage({
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-        res.json();
-        console.log("response: ", res);
-      })
+      .then((res) => res.json())
       .then((data) => {
         setProductList(data);
-        console.log("data:", productList);
       });
   }, []);
 
