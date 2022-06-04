@@ -16,7 +16,10 @@ function ProductsPage({
   const URL = BACKEND + "/api/product";
   useEffect(() => {
     fetch(URL)
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        console.log(res);
+      })
       .then((data) => {
         setProductList(data);
       });

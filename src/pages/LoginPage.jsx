@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   // States
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const BACKEND = process.env.REACT_APP_BACKEND;
+  const navigate = useNavigate();
 
   // Check if email field & password field is empty
   function validateForm() {
@@ -58,6 +60,7 @@ function LoginPage() {
           Login
         </button>
       </form>
+      <button onClick={() => navigate(-1)}>Back</button>
     </div>
   );
 }
