@@ -8,8 +8,8 @@ export default function DetailedActivities({ dActivities }) {
   const navigate = useNavigate();
   
   // API
-  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
-  // const BACKEND = process.env.REACT_APP_BACKEND;
+  // const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+  const BACKEND = process.env.REACT_APP_BACKEND;
   const URL = BACKEND + "/api/product/details";
   useEffect(() => {
     // console.log("I am Fetching from Detailed Activities");

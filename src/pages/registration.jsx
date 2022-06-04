@@ -12,8 +12,8 @@ function Registration() {
   }
 
   // URLs
-  // const BACKEND = process.env.REACT_APP_BACKEND;
-  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+  const BACKEND = process.env.REACT_APP_BACKEND;
+  // const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
 
   // API call
   const URL = BACKEND + "/api/user/register";

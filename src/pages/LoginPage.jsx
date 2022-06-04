@@ -12,8 +12,8 @@ function LoginPage() {
     return email.length > 0 && password.length > 0;
   }
 
-  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
-  // const BACKEND = process.env.REACT_APP_BACKEND;
+  // const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+  const BACKEND = process.env.REACT_APP_BACKEND;
   const URL = BACKEND + "/api/user/login";
   function handleSubmit(event) {
     event.preventDefault();
