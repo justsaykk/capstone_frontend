@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import ProductsPage from "./pages/ProductsPage";
 import CartPage from "./pages/CartPage";
 import DetailedActivities from "./pages/DetailedActivites";
+import Bookings from "./pages/Bookings";
 import { useState } from "react";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             }
           />
           <Route path="/cart" element={<CartPage cart={cart} />} />
+          <Route path="/bookings" element={<Bookings />} />
         </Routes>
       </BrowserRouter>
     </div>

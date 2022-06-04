@@ -15,6 +15,9 @@ export default function NavBar() {
       <Link className="button" to="/login">
         Login
       </Link>
+      <Link className="button" to="/bookings">
+        My Bookings
+      </Link>
     </div>
   );
 }

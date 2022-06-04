@@ -2,7 +2,8 @@ import { React, useState, useEffect } from "react";
 import NavBar from "../components/NavBar";
 
 function CartPage({ cart }) {
-  const BACKEND = process.env.REACT_APP_BACKEND;
+  // const BACKEND = process.env.REACT_APP_BACKEND;
+  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
   const cartDetails = [];
 
   // Pruning Arrays

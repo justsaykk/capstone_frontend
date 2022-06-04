@@ -5,13 +5,17 @@ function Registration() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const BACKEND = process.env.REACT_APP_BACKEND;
   const navigate = useNavigate();
 
   function validateForm() {
     return email.length > 0 && password.length > 5;
   }
 
+  // URLs
+  // const BACKEND = process.env.REACT_APP_BACKEND;
+  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+
+  // API call
   const URL = BACKEND + "/api/user/register";
   function handleSubmit(event) {
     event.preventDefault();

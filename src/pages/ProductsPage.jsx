@@ -9,21 +9,32 @@ function ProductsPage({
   setDActivities,
 }) {
   // URLs
-  const BACKEND = process.env.REACT_APP_BACKEND;
+  // const BACKEND = process.env.REACT_APP_BACKEND;
+  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
   const navigate = useNavigate();
 
   // API
   const URL = BACKEND + "/api/product";
   useEffect(() => {
-    fetch(URL)
+    fetch(URL, {
+      method: "GET",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => {
         res.json();
-        console.log(res);
+        console.log("response: ", res);
       })
       .then((data) => {
         setProductList(data);
+        console.log("data:", productList);
       });
   }, []);
+
+  // Debugging
+  console.log("productList:", productList);
 
   const handleAddToCart = (event) => {
     setCart(event.target.value);
