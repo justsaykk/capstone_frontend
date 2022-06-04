@@ -9,8 +9,8 @@ function ProductsPage({
   setDActivities,
 }) {
   // URLs
-  const BACKEND = process.env.REACT_APP_BACKEND;
-  // const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+  // const BACKEND = process.env.REACT_APP_BACKEND;
+  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
   const navigate = useNavigate();
 
   // API

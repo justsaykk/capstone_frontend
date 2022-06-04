@@ -6,8 +6,8 @@ export default function Bookings() {
   const [bookings, setBookings] = useState([]);
 
   // URLs
-  const BACKEND = process.env.REACT_APP_BACKEND;
-  // const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
+  // const BACKEND = process.env.REACT_APP_BACKEND;
+  const BACKEND = process.env.REACT_APP_LOCAL_BACKEND;
   const navigate = useNavigate();
 
   // API Call
