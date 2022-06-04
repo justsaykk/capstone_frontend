@@ -12,11 +12,11 @@ export default function NavBar() {
       <Link className="button" to="/cart">
         My Cart
       </Link>
-      <Link className="button" to="/login">
-        Login
-      </Link>
       <Link className="button" to="/bookings">
         My Bookings
+      </Link>
+      <Link className="button" to="/login">
+        Login
       </Link>
     </div>
   );

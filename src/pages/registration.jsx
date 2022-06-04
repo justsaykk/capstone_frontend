@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function Registration() {
   const [name, setName] = useState("");
@@ -36,6 +37,7 @@ function Registration() {
 
   return (
     <div>
+      <NavBar />
       <form onSubmit={handleSubmit}>
         <div className="registration-name">
           <label for="registrationName">Name</label>

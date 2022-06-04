@@ -27,32 +27,39 @@ export default function Bookings() {
       });
   }, []);
 
-  const update = (event) => {
-    fetch(URL + "/update", {
-      method: "PUT",
-      body: JSON.stringify({
-        id: event.id,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).catch((error) => {
-      console.log({ Error: error });
-    });
-  };
+  // // Update API Call
+  // function updateTrek(event) {
+  //   fetch(URL + "/update", {
+  //     method: "PUT",
+  //     credentials: "include",
+  //     body: JSON.stringify({
+  //       id: event.id,
+  //       trekDate: "01-Jan-2023", // to update to field
+  //     }),
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   }).catch((error) => {
+  //     console.log({ Error: error });
+  //   });
+  // }
 
+  // Delete API Call
   function deleteTrek(event) {
     fetch(URL + "/delete", {
-      method: "POST",
+      method: "DELETE",
+      credentials: "include",
       body: JSON.stringify({
         id: event.id,
       }),
       headers: {
         "Content-Type": "application/json",
       },
-    }).catch((error) => {
-      console.log({ Error: error });
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("deleted!");
+      });
   }
 
   return (
@@ -72,6 +79,7 @@ export default function Bookings() {
           {bookings.map((el) => {
             const product = el.product.pName;
             const trekDate = el.trekDate;
+            console.log("event.id", )
             console.log("product", product);
             console.log("trekDate", trekDate);
             return (
@@ -79,7 +87,7 @@ export default function Bookings() {
                 <td>{product}</td>
                 <td>{trekDate}</td>
                 <td>
-                  <button onClick={update}>Update</button>
+                  <button /*onClick={updateTrek}*/>Update</button>
                 </td>
                 <td>
                   <button onClick={deleteTrek}>Delete</button>

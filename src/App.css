@@ -1,0 +1,30 @@
+    .navBar {
+        display: flex;
+        background-color: black;
+        overflow: hidden;
+    }
+
+    .navBar .button {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    .navBar .button:hover {
+        background-color: #ddd;
+        color: black;
+    }
+
+    .navBar .button:active {
+        background-color: #0c04aa;
+        color: white;
+    }
+
+    table,
+    th,
+    td {
+        border: 1px solid;
+    }

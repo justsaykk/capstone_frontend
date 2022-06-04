@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function LoginPage() {
   // States
@@ -52,6 +53,7 @@ function LoginPage() {
 
   return (
     <div>
+      <NavBar />
       <h1>Login Page</h1>
       <form onSubmit={handleSubmit}>
         <div className="email-input">
